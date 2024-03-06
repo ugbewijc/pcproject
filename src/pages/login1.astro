@@ -1,0 +1,647 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import img1 from "../assets/img/img1.png";
+import img2 from "../assets/img/img2.png";
+import img3 from "../assets/img/img3.png";
+import img4 from "../assets/img/img4.png";
+import img5 from "../assets/img/img5.png";
+import img6 from "../assets/img/img6.png";
+import img7 from "../assets/img/img7.png";
+import img8 from "../assets/img/img8.png";
+import img9 from "../assets/img/img9.png";
+---
+
+<Layout title="Register">
+    <section class="flex justify-center">
+        <form
+            id="login"
+            class="flex flex-col w-full md:w-2/3 w-full"
+            action=""
+        >
+            <div class="w-full m-2 flex flex-col justify-center">
+                <!-- <label for="username">Username</label> -->
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="md:w-2/3 m-2 p-1 border border-gray-400 outline-none focus:border-gray-900"
+                    placeholder="Enter Your Username"
+                    required
+                />
+            </div>
+            <div
+                id="password-section"
+                class="w-full m-2 flex flex-col justify-center"
+            >
+                <div class="md:w-2/3 p-4">
+                    <p class="p-2 mx-3 border-2 border-red-600">
+                        <span class="font-semibold">NOTE:</span> Pick PassPoint
+                        from the images below
+                    </p>
+                    <p class="p-2 mx-3">
+                        Picked PassPoint <span id="passpoint-counter">0/5</span>
+                    </p>
+                </div>
+                <div class="flex flex-wrap justify-around md:w-2/3 my-3">
+                    <Image
+                        src={img1}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img2}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img3}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img4}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img5}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img6}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img7}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img8}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <Image
+                        src={img9}
+                        width="150px"
+                        height="100px"
+                        alt="passpoint"
+                        class="btn-open-modal cursor-pointer w-[170px] h-[150px] p-2"
+                    />
+                    <!-- <img class="btn-open-modal cursor-pointer   h-48 w-80" alt="passpoint"/>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-80" alt="passpoint"/> -->
+                    <!-- <img class="btn-open-modal cursor-pointer   h-48 w-80" alt="passpoint"/> -->
+                    <!-- <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/> -->
+                </div>
+                <!-- <div class="flex justify-between md:w-2/3">
+                        <div></div>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <div></div>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <div>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                    </div>
+                    <div class="flex justify-between md:w-2/3 my-3">
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                        <img class="btn-open-modal cursor-pointer   h-48 w-96" alt="passpoint"/>
+                    </div> -->
+            </div>
+            <div class="w-full m-2 flex flex-col justify-center">
+                <!-- <input type="submit" value="Register"> -->
+                <button
+                    id="resetBtn"
+                    type="button"
+                    class="md:w-2/3 m-2 p-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                    Reset
+                </button>
+                <button
+                    id="submitBtn"
+                    type="submit"
+                    class="md:w-2/3 m-2 p-1 text-white bg-blue-700 disabled:cursor-none disabled:hover:bg-blue-100 disabled:bg-blue-100 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    disabled
+                >
+                    Login
+                </button>
+            </div>
+            <div>Not registered yet? <a href="/register"> Register Here</a></div>
+
+            <!-- modal 1-->
+            <div
+                id="modal-1"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content-->
+                        <div class="p-6">
+                            <Image
+                                src={img1}
+                                alt="passpoint"
+                                id="modal-1"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 2-->
+            <div
+                id="modal-2"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content 1 -->
+                        <div class="p-6">
+                            <Image
+                                src={img2}
+                                alt="passpoint"
+                                id="modal-2"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 3-->
+            <div
+                id="modal-3"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img3}
+                                alt="passpoint"
+                                id="modal-3"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 4-->
+            <div
+                id="modal-4"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img4}
+                                alt="passpoint"
+                                id="modal-4"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 5-->
+            <div
+                id="modal-5"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img5}
+                                alt="passpoint"
+                                id="modal-5"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 6-->
+            <div
+                id="modal-6"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img6}
+                                alt="passpoint"
+                                id="modal-6"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 7-->
+            <div
+                id="modal-7"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img7}
+                                alt="passpoint"
+                                id="modal-7"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 8-->
+            <div
+                id="modal-8"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img8}
+                                alt="passpoint"
+                                id="modal-8"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal 9-->
+            <div
+                id="modal-9"
+                class="modal hidden fixed inset-0 overflow-y-auto"
+            >
+                <div
+                    class="flex justify-center min-h-auto pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+                >
+                    <div
+                        class="fixed inset-0 transition-opacity"
+                        aria-hidden="true"
+                    >
+                        <div class="absolute inset-0 bg-gray-500 opacity-75">
+                        </div>
+                    </div>
+                    <span
+                        class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                        aria-hidden="true">&#8203;</span
+                    >
+                    <div
+                        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    >
+                        <!-- Modal Content -->
+                        <div class="p-6">
+                            <Image
+                                src={img9}
+                                alt="passpoint"
+                                id="modal-9"
+                                class="clickable"
+                            />
+                        </div>
+                        <div
+                            class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+                        >
+                            <button
+                                class="btn-close-modal border-2 border-orange-500 px-4 py-2 rounded-[39px]"
+                                >Close</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</Layout>
+<script>
+    const imgDetails = [];
+    const openModalButtons = document.querySelectorAll(".btn-open-modal");
+    const closeModalButtons = document.querySelectorAll(".btn-close-modal");
+    const clickableImg = document.querySelectorAll(".clickable");
+    const modals = document.querySelectorAll(".modal");
+    const passpointCounter = document.getElementById("passpoint-counter");
+    const passwordDiv = document.getElementById("password-section");
+    const loginButton = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const loginForm = document.getElementById("login");
+
+    openModalButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            modals[index].classList.remove("hidden");
+        });
+    });
+
+    closeModalButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            modals[index].classList.add("hidden");
+        });
+    });
+
+    // Click points
+    clickableImg.forEach((img, index) => {
+        img.addEventListener("click", (event) => {
+            const containerRect = img.getBoundingClientRect();
+            const clickedXPercentage =
+                ((event.clientX - containerRect.left) / containerRect.width) *
+                100;
+            const clickedYPercentage =
+                ((event.clientY - containerRect.top) / containerRect.height) *
+                100;
+            let passpoint = {
+                img: event.target.id,
+                x: clickedXPercentage,
+                y: clickedYPercentage,
+            };
+            imgDetails.push(passpoint);
+
+            // console.log(imgDetails);
+            passpointCounter.textContent = `${imgDetails.length}/5`;
+            // modals.classList.add("hidden");
+            if (imgDetails.length >= 5) {
+                passwordDiv.classList.add("pointer-events-none");
+                loginButton.toggleAttribute("disabled");
+            }
+            document
+                .getElementById(`${event.target.id}`)
+                .classList.toggle("hidden");
+            });
+    });
+
+    // Reset Form
+    resetBtn.addEventListener("click", () => {
+        loginForm.reset();
+        imgDetails.length = 0;
+        passpointCounter.textContent = `${imgDetails.length}/5`;
+        passwordDiv.classList.toggle("pointer-events-none");
+        loginButton.toggleAttribute("disabled");        
+    });
+
+    // Login form
+    loginForm.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent the default form submission
+            // Get the form data
+            const formData = new FormData(event.target);
+            formData.append("pwd", JSON.stringify(imgDetails));
+            const res = await fetch("/api/login", {
+                method: "POST",
+                body: formData,
+            });
+            // console.log(await res.json());
+            if (res.status == 200){
+                window.location.replace('/dashboard')
+            }
+            if (res.status == 404){
+            alert(`Invalid Credentials`);
+            }
+    //         fetch("/api/register")
+    //   .then((response) => {
+    //     console.log("response is ok")
+    //     console.log(response);
+    //   }).catch();
+
+            //   // Replace 'https://api.example.com/submit' with your actual API endpoint
+            //   fetch('https://api.example.com/submit', {
+            //     method: 'POST',
+            //     body: formData
+            //   })
+            //   .then(response => {
+            //     if (!response.ok) {
+            //       throw new Error('Network response was not ok');
+            //     }
+            //     return response.json();
+            //   })
+            //   .then(data => {
+            //     // Handle the response data
+            //     console.log('Form submitted successfully:', data);
+            //   })
+            //   .catch(error => {
+            //     // Handle errors
+            //     console.error('Error submitting form:', error);
+            //   });
+        });
+</script>
