@@ -11,6 +11,7 @@ node_modules/
 # data log
 data/*
 !data/note.txt
+!data/points.js
 # logs
 npm-debug.log*
 yarn-debug.log*

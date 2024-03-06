@@ -1,72 +1,5 @@
-// // Outputs: /builtwith.json
-
-// import { open, close, readFileSync, writeFileSync } from "fs";
 import fs from "fs";
-
-// function closeFile(fileDescriptor) {
-//   close(fileDescriptor, (err) => {
-//     // if (err) throw err;
-//     console.log(err)
-//   });
-// }
-
-// async function readFile(filePath) {
-//   console.log("reading file");
-//   open(filePath, 'a+', (err, fd) => {
-//     if (err) {
-//       //create file if not found 
-//       if (err.code === 'ENOENT') {
-//         console.log("file does not exist");
-//         try {
-//           console.log(`creating ${filePath}`);
-//           const jsonDataToWrite = {
-//             name: 'John Doe',
-//             age: 30,
-//             city: 'Example City'
-//           };
-//           const jsonData = JSON.stringify(jsonDataToWrite, null, 2);
-//           writeFileSync(filePath, jsonData, 'utf-8');
-//           const fileDetails = readFileSync(filePath, 'utf-8');
-//           // closeFile(fd)
-//           console.log(`file data ${fileDetails}`);
-//           // return fileDetails;  
-//           return JSON.parse(fileDetails);
-//           // return null;
-//         } catch (err) {
-//           // throw err;
-//           console.log(err);
-//         }
-//       }
-//       console.log(err)
-//       // throw err;
-//     }
-//     try {
-
-//       // const fileDetails = JSON.parse(readFileSync(filePath,'utf-8'));
-//       const fileDetails = readFileSync(filePath, 'utf-8');
-//       // closeFile(fd)
-//       console.log(`file data ${fileDetails}`);
-//       // return fileDetails;  
-//       return JSON.parse(fileDetails);
-//     } catch (error) {
-//       // closeFile(fd);
-//       console.log(error);
-//     }
-
-//     // else {
-//     //   // closeFile(fd);
-//     //   console.log(fd);
-//     // }
-//   });
-//   // try {
-//   //   const data = fs.readFileSync(filePath, 'utf8');
-//   //   return JSON.parse(data);
-//   // } catch (error) {
-//   //   // console.error('Error reading JSON file:', error);
-//   //   return null;
-//   // }
-// }
-
+import calSectors from "../../utils/calSectors";
 
 // Function to write JSON data to a file
 function writeJsonToFile(data, filePath) {
@@ -83,7 +16,7 @@ function writeJsonToFile(data, filePath) {
 function readJsonFromFile(filePath) {
   try {
     const data = fs.readFileSync(filePath, 'utf8');
-    const dataRead =  JSON.parse(data);
+    const dataRead = JSON.parse(data);
     return dataRead;
   } catch (error) {
     // console.error('Error reading from file:', error);
@@ -102,54 +35,55 @@ export async function POST({ params, request }) {
   const email = formData.get("email") || null;
   const phoneNumber = formData.get("phone") || null;
   const pwd = formData.get("pwd") || null;
+  const pwdArray = JSON.parse(pwd);
   const filePath = 'data/users.json';
-  // return new Response(null, { status: 404 });
 
-  // return new Response(
-  //   JSON.stringify({
-  //     status: 'success',
-  //   }), {
-  //   status: 200,
-  // }
-  // )
-  // console.log(path.dirname(filePath));
-  // const filePath = path.resolve("data","users.json");
-  // const __dirname = path.resolve(path.dirname(''));
-  // console.log(path.join(process.cwd(), 'data', 'users.json'));
-  // console.log(process.cwd());
-  // console.log(path.resolve("data","users.json"));
+  const sectors = calSectors(pwdArray);
 
+  //check sectors length
+  if (sectors.length != 4) {
+    // console.log("Invalid Detailss")
+    return new Response(
+      JSON.stringify({
+        status: 'Failed',
+        message: 'Invalid Details'
+      }), {
+      status: 401,
+    }
+    )
+  }
   // User JSON data
   const jsonDataToWrite = {
     username,
     email,
     phoneNumber,
-    pwd
+    pwd,
+    sectors
   };
 
-  const jsonDataRead =  readJsonFromFile(filePath);
+  const jsonDataRead = readJsonFromFile(filePath);
   if (!jsonDataRead) {
     // Write JSON data to the file
-    writeJsonToFile([jsonDataToWrite], filePath); 
-  return new Response(
-    JSON.stringify({
-      status: 'success',
-    }), {
-    status: 201,
-  }
-  )
-  }else if(valueExistsInArray(jsonDataRead, 'username', username) || valueExistsInArray(jsonDataRead, 'email', email)){
+    writeJsonToFile([jsonDataToWrite], filePath);
+    return new Response(
+      JSON.stringify({
+        status: 'success',
+      }), {
+      status: 201,
+    }
+    )
+  } else if (valueExistsInArray(jsonDataRead, 'username', username) || valueExistsInArray(jsonDataRead, 'email', email)) {
     return new Response(
       JSON.stringify({
         status: 'Failed',
         message: 'User exist'
       }), {
-      status: 404,
+      status: 401,
     }
-    ) 
-  } else{
-    console.log(jsonDataRead);
-    
+    )
+  } else {
+    // console.log(jsonDataRead);
+
     const newData = [...jsonDataRead];
     newData.push(jsonDataToWrite);
     writeJsonToFile(newData, filePath);
